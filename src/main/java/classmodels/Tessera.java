@@ -18,7 +18,7 @@ public class Tessera   {
 	private LocalDate tempoValidita;
 	private LocalDate dataCreazione;
 	private Utente utente;
-	private String codiceId;
+	private int codiceId;
 
 	public Tessera(LocalDate dataCreazione, Utente utente) {
 
@@ -66,11 +66,11 @@ public class Tessera   {
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public String getCodiceId() {
+	public int getCodiceId() {
 		return codiceId;
 	}
 
-	public void setCodiceId(String codiceId) {
+	public void setCodiceId(int codiceId) {
 		this.codiceId = codiceId;
 	}
 

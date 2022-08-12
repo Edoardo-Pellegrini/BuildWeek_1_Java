@@ -5,10 +5,10 @@ package classmodels;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import dao.BigliettoDao;
 import dao.BusDao;
 import dao.DistributoreAutomaticoDao;
+import dao.GenericDao;
 import dao.RivenditoreDao;
 import dao.TesseraDao;
 import dao.TipoManutenzioneDao;
@@ -17,10 +17,19 @@ import dao.TrattaDao;
 import dao.UtenteDao;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+
 
 public class Main {
+	
+
+	private static final Logger log = LoggerFactory.getLogger(Main.class);
 
 	public static void main(String[] args) {
+		
 		
 		
 //		Utente utente1 = new Utente("Eugenio", "Codella", 29, "HHR1023");
@@ -149,6 +158,27 @@ public class Main {
 			biglietti1.save(biglietti.get(i));
 				
 			}
+		
+		
+		log.info("Il elemento dato un punto ");
+        BigliettoDao bigliettPunto = new BigliettoDao(Biglietto.class);
+        var punto = bigliettPunto.ricercaPerPunto("Dublin");
+        log.info("I elementi sono {}", punto.size());
+        punto.stream().forEach(c -> log.info("Il elemento di punto Dublin: {}", c));
+		
+//		
+//        log.info("Il elemento dato un data ");
+//        BigliettoDao bigliettPunto1 = new BigliettoDao(Biglietto.class);
+//        var data = bigliettPunto1.ricercaPerData(LocalDate.now());
+//        log.info("I elementi sono {}", punto.size());
+//        data.stream().forEach(c -> log.info("Il elemento di data meno di oggi: {}", c));
+	
+		
+
+		
+		
+		
+		
 		
 //		Biglietto biglietto1 = new Biglietto(true, true, Validita.mensile, tessera1, LocalDate.of(2022, 1, 3), LocalDate.of(2022, 2, 3), "Carlow", metodoAcquisto1);
 //		

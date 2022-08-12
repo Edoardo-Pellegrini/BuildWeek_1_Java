@@ -49,10 +49,10 @@ public abstract class MetodoAcquisto {
 
 	
 	
-	@Override
-	public String toString() {
-		return "MetodoAcquisto [biglietto=" + biglietto + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "MetodoAcquisto [biglietto=" + biglietto + "]";
+//	}
 
 
 	@OneToMany (mappedBy="metodoAcquisto", cascade = CascadeType.REMOVE)

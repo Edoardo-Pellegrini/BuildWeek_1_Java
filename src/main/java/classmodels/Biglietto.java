@@ -11,12 +11,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "biglietti")
+@NamedQuery(name = "Biglietto.SELECT_ALL_QUERY_PER_PUNTO", query = "SELECT c FROM Biglietto c WHERE c.puntoEmissione LIKE :puntoEmissione")
+@NamedQuery(name = "Biglietto.SELECT_ALL_QUERY_PER_DATA", query = "SELECT c FROM Biglietto c WHERE c.dataScadenza < :today")
+
+
 public class Biglietto {
 	
 	private int id;
@@ -143,10 +148,11 @@ public class Biglietto {
 
 	@Override
 	public String toString() {
-		return "Biglietto [id=" + id + ", timbrato=" + timbrato + ", valido=" + valido + ", validita=" + validita
-				+ ", tessera=" + tessera + ", dataEmissione=" + dataEmissione + ", dataScadenza=" + dataScadenza
-				+ ", puntoEmissione=" + puntoEmissione + "]";
+		return String.format(
+				"Biglietto [id=%s, timbrato=%s, valido=%s, validita=%s, tessera=%s, dataEmissione=%s, dataScadenza=%s, puntoEmissione=%s, metodoAcquisto=%s]",
+				id, timbrato, valido, validita, tessera, dataEmissione, dataScadenza, puntoEmissione, metodoAcquisto);
 	}
+
 	
 	
 

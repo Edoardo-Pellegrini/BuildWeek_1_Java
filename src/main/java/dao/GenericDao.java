@@ -1,10 +1,16 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import classmodels.Biglietto;
+
 
 
 
@@ -69,5 +75,8 @@ public class GenericDao <X, Y> {
         }
 
     }
+	
+	
+
 }
  
